@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup,FormControl } from '@angular/forms';
+import { Time } from './shared/custom-controls/my-tel/classes/time';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'wisFormField';
+ public form: FormGroup = new FormGroup({
+    time: new FormControl(new Time('12', '12'))
+  });
 }

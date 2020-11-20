@@ -1,0 +1,17 @@
+<div role="group" class="example-tel-input-container" [formGroup]="parts"
+	[attr.aria-labelledby]="_formField?.getLabelId()">
+	<input class="example-tel-input-element"
+         formControlName="hours"
+         maxLength="2"
+         aria-label="hours"
+         (input)="handleInput(parts.controls.hours, minutes)"
+         #hours>
+	<span class="example-tel-input-spacer">:</span>
+	<input class="example-tel-input-element"
+         formControlName="minutes"
+         maxLength="2"
+         aria-label="minutes"
+         (input)="handleInput(parts.controls.minutes, minutes)"
+         (keyup.backspace)="autoFocusPrev(parts.controls.minutes, minutes)"
+         #minutes>
+</div>
