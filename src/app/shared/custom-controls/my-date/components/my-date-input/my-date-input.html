@@ -1,0 +1,38 @@
+<div
+  role="group"
+  class="date-input-container"
+  [formGroup]="parts"
+  [attr.aria-labelledby]="_formField?.getLabelId()"
+>
+  <input
+    class="date-input-element"
+    formControlName="day"
+    size="2"
+    maxlength="2"
+    aria-label="day"
+    (keydown)="handleInput($event,parts.controls.day, month)"
+    #day
+  />
+  <span class="date-input-spacer">.</span>
+  <input
+    class="date-input-element"
+    formControlName="month"
+    size="2"
+    maxlength="2"
+    aria-label="month"
+    (keydown)="handleInput($event,parts.controls.month, year)"
+    (keydown.backspace)="handleBackspace(parts.controls.month, day)"
+    #month
+  />
+  <span class="date-input-spacer">.</span>
+  <input
+    class="date-input-element"
+    formControlName="year"
+    size="4"
+    maxlength="4"
+    aria-label="year"
+    (keydown.backspace)="handleBackspace(parts.controls.year, month)"
+    #year
+  />
+</div>
+
